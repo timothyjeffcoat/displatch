@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dispatch</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <div class="header-left">
+      <h1>DISPATCH</h1>
+      <span class="subtitle">Project Status Board</span>
+    </div>
+    <div class="header-right">
+      <div class="clock" id="clock"></div>
+      <div class="sync-row">
+        <span class="connection-dot" id="connectionDot"></span>
+        <span class="sync-text" id="syncText">Connecting...</span>
+      </div>
+      <button class="btn-add" id="btnAdd">+ Add Project</button>
+    </div>
+  </header>
+
+  <div class="add-form" id="addForm" style="display:none;">
+    <input type="text" id="addName" placeholder="project-slug">
+    <input type="text" id="addDisplay" placeholder="Display Name (optional)">
+    <select id="addStatus">
+      <option value="me">Me</option>
+      <option value="claude">Claude</option>
+      <option value="blocked">Blocked</option>
+      <option value="done">Done</option>
+    </select>
+    <input type="text" id="addTask" placeholder="Current task">
+    <input type="text" id="addNext" placeholder="Next action">
+    <input type="text" id="addNote" placeholder="Note (optional)">
+    <div class="add-form-actions">
+      <button class="btn-submit" id="btnSubmitAdd">Post Update</button>
+      <button class="btn-cancel" id="btnCancelAdd">Cancel</button>
+    </div>
+  </div>
+
+  <main id="projectGrid" class="project-grid"></main>
+
+  <!-- Status edit popover -->
+  <div class="popover" id="statusPopover" style="display:none;">
+    <div class="popover-content">
+      <h3 id="popoverTitle">Update Status</h3>
+      <select id="popStatus">
+        <option value="me">Me</option>
+        <option value="claude">Claude</option>
+        <option value="blocked">Blocked</option>
+        <option value="done">Done</option>
+      </select>
+      <input type="text" id="popTask" placeholder="Current task">
+      <input type="text" id="popNext" placeholder="Next action">
+      <input type="text" id="popNote" placeholder="Note (optional)">
+      <div class="popover-actions">
+        <button class="btn-submit" id="btnPopSubmit">Update</button>
+        <button class="btn-cancel" id="btnPopCancel">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- History panel -->
+  <div class="history-overlay" id="historyOverlay" style="display:none;">
+    <div class="history-panel">
+      <div class="history-header">
+        <h2 id="historyTitle">History</h2>
+        <button class="btn-close" id="btnCloseHistory">&times;</button>
+      </div>
+      <div class="history-list" id="historyList"></div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
